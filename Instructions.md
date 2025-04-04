@@ -10,5 +10,11 @@
 - Cleanup
   - favicon.ico
 - More about project structure: https://nextjs.org/docs/app/getting-started/project-structure
+- API: https://pokeapi.co/
 
-###
+### Routing
+
+- We want few pages:
+  - about page
+  - pokemon list page
+  - specific pokemon page

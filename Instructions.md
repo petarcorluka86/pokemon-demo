@@ -23,3 +23,9 @@ We need to implement the following pages:
 
 - Create a shared layout for all pages
 - Implement a navigation component within the layout
+  - Link component
+  - About and pokemons list (specific pokemons page later)
+
+## Design system
+
+-

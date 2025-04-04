@@ -1,3 +1,3 @@
 export default function Pokemon() {
-  return <main>Single pokemon pagee</main>;
+  return <div>Single pokemon pagee</div>;
 }

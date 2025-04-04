@@ -30,3 +30,6 @@ We need to implement the following pages:
 
 - install panda css: https://panda-css.com/docs/installation/nextjs#install-panda-css
 - define tokens and colors
+- use it to make prettier navigation
+  - Image component
+  - usePathname hook

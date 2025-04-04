@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Bubblegum_Sans } from "next/font/google";
 import "./globals.css";
-import Link from "next/link";
+import Header from "@/components/Header";
 
 const font = Bubblegum_Sans({
   weight: "400",
@@ -21,11 +21,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
-        <nav>
-          <Link href="/">About</Link>
-          <Link href="/pokemons">Pokemons</Link>
-        </nav>
-        {children}
+        <Header />
+        <main>{children}</main>
       </body>
     </html>
   );

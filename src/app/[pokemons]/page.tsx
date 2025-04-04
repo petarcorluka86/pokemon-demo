@@ -1,3 +1,3 @@
 export default function Pokemons() {
-  return <main>Pokemons list page</main>;
+  return <div>Pokemons list page</div>;
 }

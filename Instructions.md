@@ -1,20 +1,25 @@
-# 1. Project setup and overview
+# Next.js Project Guide
 
-### Installation
+## Installation
 
-- Command: `npx create-next-app@latest`
-- More about installation: https://nextjs.org/docs/app/getting-started/installation
+- Run: `npx create-next-app@latest`
+- For detailed instructions, visit the [official documentation](https://nextjs.org/docs/app/getting-started/installation)
 
-### Project overview
+## Project Overview
 
-- Cleanup
-  - favicon.ico
-- More about project structure: https://nextjs.org/docs/app/getting-started/project-structure
-- API: https://pokeapi.co/
+- **Initial Cleanup**: Remove unused files and update some like `favicon.ico`
+- **Project Structure**: Checkout the [recommended structure](https://nextjs.org/docs/app/getting-started/project-structure)
+- **Data Source**: [PokéAPI](https://pokeapi.co/)
 
-### Routing
+## Routing
 
-- We want few pages:
-  - about page
-  - pokemon list page
-  - specific pokemon page
+We need to implement the following pages:
+
+- About page
+- Pokémon list page
+- Individual Pokémon details page
+
+## Layout and Navigation
+
+- Create a shared layout for all pages
+- Implement a navigation component within the layout

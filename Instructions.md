@@ -28,4 +28,5 @@ We need to implement the following pages:
 
 ## Design system
 
--
+- install panda css: https://panda-css.com/docs/installation/nextjs#install-panda-css
+- define tokens and colors

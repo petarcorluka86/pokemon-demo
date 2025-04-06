@@ -1,11 +1,11 @@
 import { fetchPokemons } from "@/utils/api";
 import { Grid } from "../../../../styled-system/jsx";
 import { PokemonListItemServer } from "@/components/PokemonLiServer";
-import { blockThread } from "@/utils/other";
+import { Suspense } from "react";
+import { PokemonListItemUI } from "@/components/PokemonLiUI";
 
 export default async function Pokemons() {
   const data = await fetchPokemons();
-  await blockThread(200);
 
   return (
     <Grid
@@ -14,10 +14,9 @@ export default async function Pokemons() {
       width="100%"
     >
       {data?.results.map((pokemonListItem) => (
-        <PokemonListItemServer
-          key={pokemonListItem.name}
-          name={pokemonListItem.name}
-        />
+        <Suspense key={pokemonListItem.name} fallback={<PokemonListItemUI />}>
+          <PokemonListItemServer name={pokemonListItem.name} />
+        </Suspense>
       ))}
     </Grid>
   );

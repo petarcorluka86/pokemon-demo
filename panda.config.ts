@@ -1,6 +1,230 @@
-import { defineConfig, definePreset, defineTokens } from "@pandacss/dev";
+import {
+  defineConfig,
+  definePreset,
+  defineRecipe,
+  defineTokens,
+} from "@pandacss/dev";
 import pandaPreset from "@pandacss/preset-base";
 import { SemanticTokens } from "@pandacss/dev";
+
+const buttonRecipe = defineRecipe({
+  className: "button",
+  jsx: ["Button", "IconButton"],
+  base: {
+    border: "1.5px solid transparent",
+    alignItems: "center",
+    appearance: "none",
+    cursor: "pointer",
+    display: "inline-flex",
+    isolation: "isolate",
+    justifyContent: "center",
+    outline: "none",
+    position: "relative",
+    userSelect: "none",
+    lineHeight: "normal!",
+    flexShrink: 0,
+    whiteSpace: "nowrap",
+    "& :where(svg)": {
+      fill: "currentColor",
+    },
+    _disabled: {
+      colorPalette: "neutral!",
+      cursor: "not-allowed",
+    },
+  },
+  defaultVariants: {
+    variant: "filled",
+    size: "primary",
+    colorPalette: "primary",
+    negative: false,
+  },
+  variants: {
+    variant: {
+      filled: {
+        bg: "colorPalette.default",
+        color: "surface.s1",
+        "&:not([disabled])": {
+          _hover: {
+            bg: "linear-gradient({colors.neutrals.nLv4}, {colors.neutrals.nLv4}), {colors.colorPalette.default}",
+          },
+          _active: {
+            bg: "linear-gradient({colors.onColor.highlight2}, {colors.onColor.highlight2}), {colors.colorPalette.default}",
+          },
+          _focusVisible: {
+            bg: "linear-gradient({colors.neutrals.nLv4}, {colors.neutrals.nLv4}), {colors.colorPalette.default}",
+            borderColor: "neutrals.nLv4",
+          },
+        },
+      },
+      outline: {
+        borderColor: "colorPalette.default",
+        color: "colorPalette.default",
+        bg: "transparent",
+        "&:not([disabled])": {
+          _hover: {
+            bg: "colorPalette.default/8",
+          },
+          _active: {
+            bg: "colorPalette.default/15",
+          },
+          _focusVisible: {
+            bg: "colorPalette.default/8",
+            borderColor: "colorPalette.default/15",
+          },
+        },
+      },
+      clear: {
+        color: "colorPalette.default",
+        bg: "transparent",
+        _disabled: {
+          color: "neutral.default",
+        },
+        "&:not([disabled])": {
+          _hover: {
+            bg: "colorPalette.default/8",
+          },
+          _active: {
+            bg: "colorPalette.default/15",
+          },
+          _focusVisible: {},
+        },
+      },
+    },
+    size: {
+      primary: {
+        h: "36px",
+        minW: "36px",
+        textStyle: "action.button.primary",
+        px: "lg",
+        gap: "xs",
+        borderRadius: "xs",
+        "& :where(svg)": {
+          w: "24px",
+          h: "24px",
+        },
+      },
+      secondary: {
+        h: "32px",
+        minW: "32px",
+        textStyle: "action.button.primary",
+        px: "lg",
+        gap: "sm",
+        borderRadius: "xl",
+        "& :where(svg)": {
+          w: "16px",
+          h: "16px",
+        },
+      },
+      tertiary: {
+        h: "24px",
+        minW: "24px",
+        textStyle: "assistive.default",
+        px: "md",
+        gap: "2xs",
+        borderRadius: "xl",
+        "& :where(svg)": {
+          w: "16px",
+          h: "16px",
+        },
+      },
+    },
+    negative: {
+      true: {
+        color: "graphics.dark",
+      },
+    },
+    colorPalette: {
+      primary: {
+        colorPalette: "action.primary",
+      },
+      secondary: {
+        colorPalette: "secondary",
+      },
+      neutral: {
+        colorPalette: "neutral",
+      },
+      success: {
+        colorPalette: "status.success",
+      },
+      alert: {
+        colorPalette: "status.alert",
+      },
+      error: {
+        colorPalette: "status.error",
+      },
+    },
+  },
+  compoundVariants: [
+    {
+      variant: "filled",
+      negative: true,
+      css: {
+        bg: "onColor.primary",
+        _disabled: {
+          color: "neutrals.nLv3",
+          bg: "onColor.secondary",
+        },
+        "&:not([disabled])": {
+          _hover: {
+            bg: "linear-gradient(rgba(34, 34, 38, 0.08), rgba(34, 34, 38, 0.08)), {colors.onColor.primary}",
+          },
+          _active: {
+            bg: "linear-gradient(rgba(34, 34, 38, 0.15), rgba(34, 34, 38, 0.15)), {colors.onColor.primary}",
+          },
+          _focusVisible: {
+            bg: "linear-gradient(rgba(34, 34, 38, 0.08), rgba(34, 34, 38, 0.08)), {colors.onColor.primary}",
+            borderColor: "rgba(34, 34, 38, 0.15)",
+          },
+        },
+      },
+    },
+    {
+      variant: "outline",
+      negative: true,
+      css: {
+        color: "onColor.primary",
+        borderColor: "onColor.primary",
+        _disabled: {
+          color: "onColor.secondary",
+          borderColor: "onColor.secondary",
+        },
+        "&:not([disabled])": {
+          _hover: {
+            bg: "onColor.highlight2",
+          },
+          _active: {
+            bg: "onColor.highlight1",
+          },
+          _focusVisible: {
+            bg: "onColor.highlight1",
+            borderColor: "onColor.highlight2",
+          },
+        },
+      },
+    },
+    {
+      variant: "clear",
+      negative: true,
+      css: {
+        color: "onColor.primary",
+        _disabled: {
+          color: "onColor.secondary",
+        },
+        "&:not([disabled])": {
+          _hover: {
+            bg: "onColor.highlight2",
+          },
+          _active: {
+            bg: "onColor.highlight1",
+          },
+          _focusVisible: {
+            bg: "onColor.highlight1",
+          },
+        },
+      },
+    },
+  ],
+});
 
 const colors: SemanticTokens["colors"] = {
   action: {
@@ -353,6 +577,15 @@ const sofascorePreset = definePreset({
       spacing: sizes,
       sizes,
       fontSizes: sizes,
+      radii: {
+        "2xs": { value: "2px" },
+        xs: { value: "4px" },
+        sm: { value: "8px" },
+        md: { value: "12px" },
+        lg: { value: "16px" },
+        xl: { value: "24px" },
+        "50%": { value: "50%" },
+      },
     }),
     semanticTokens: {
       colors,
@@ -370,6 +603,9 @@ export default defineConfig({
   exclude: [],
   // Useful for theme customization
   theme: {
+    recipes: {
+      button: buttonRecipe,
+    },
     extend: {},
   },
   // Enable JSX components

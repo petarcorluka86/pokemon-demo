@@ -29,7 +29,7 @@ We need to implement the following pages:
 ## Design system
 
 - install panda css: https://panda-css.com/docs/installation/nextjs#install-panda-css
-- define tokens and colors
+- update panda.config.ts
 - use it to make prettier navigation
-  - Image component
-  - usePathname hook
+  - use Image component for logo
+  - usePathname hook to determine active route

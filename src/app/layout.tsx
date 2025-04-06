@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Bubblegum_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import Container from "@/components/Container";
+import { Flex, styled } from "../../styled-system/jsx";
+import PokeballCounter from "@/components/PokeballCounter";
 
 const font = Bubblegum_Sans({
   weight: "400",
@@ -20,10 +23,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={font.className}>
+      <styled.body bg="surface.s0" className={font.className}>
         <Header />
-        <main>{children}</main>
-      </body>
+        <Container>
+          <Flex minH="100vh" gap="xl" p="xl">
+            <styled.main flex={1}>{children}</styled.main>
+            <styled.aside w={308} hideBelow="md">
+              <PokeballCounter />
+            </styled.aside>
+          </Flex>
+        </Container>
+      </styled.body>
     </html>
   );
 }

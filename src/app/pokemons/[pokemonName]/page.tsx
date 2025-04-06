@@ -23,7 +23,5 @@ export default async function Pokemon({
     );
   }
 
-  console.log(pokemon);
-
   return <PokemonDetails pokemon={pokemon} />;
 }

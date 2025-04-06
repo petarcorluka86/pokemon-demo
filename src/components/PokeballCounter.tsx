@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { Flex } from "../../styled-system/jsx";
+import { Flex, styled } from "../../styled-system/jsx";
 import { Text } from "../../styled-system/jsx/text";
 import { Button } from "./Button";
 import { useState } from "react";
@@ -10,21 +10,22 @@ export default function PokeballCounter() {
   return (
     <Flex
       direction="column"
-      border="2px solid {colors.primary.default}"
       borderRadius="lg"
-      p="xl"
-      gap="xl"
+      p="lg"
+      gap="lg"
       bg="surface.s1"
+      align="center"
     >
+      <styled.h2 fontSize="2xl">Pokeball Counter</styled.h2>
       <Image
         src="/logo.png"
         alt="Pokeball"
         width={256}
         height={256}
         onClick={() => setCount((x) => x + 1)}
-        style={{ cursor: "pointer", minWidth: 256 }}
+        style={{ cursor: "pointer", minWidth: 256, userSelect: "none" }}
       />
-      <Flex gap="xl" alignItems="center" justify="center">
+      <Flex gap="lg" alignItems="center" justify="center">
         <Text fontSize="2xl">{count}</Text>
         <Button onClick={() => setCount(0)}>Reset</Button>
       </Flex>

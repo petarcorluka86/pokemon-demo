@@ -26,7 +26,7 @@ export default function RootLayout({
       <styled.body bg="surface.s0" className={font.className}>
         <Header />
         <Container>
-          <Flex minH="100vh" gap="xl" p="xl">
+          <Flex minH="100vh" gap="lg" p="lg">
             <styled.main flex={1}>{children}</styled.main>
             <styled.aside w={308} hideBelow="md">
               <PokeballCounter />

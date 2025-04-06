@@ -2,10 +2,13 @@ import { styled } from "../../styled-system/jsx";
 
 const Wrap = styled("div", {
   base: {
+    backgroundColor: "surface.s1",
+    padding: "lg",
+    borderRadius: "lg",
     "& h1": {
       fontSize: "2xl",
       fontWeight: "bold",
-      marginTop: "lg",
+      marginBottom: "lg",
     },
     "& h2": {
       fontSize: "xl",

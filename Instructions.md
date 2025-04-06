@@ -33,3 +33,9 @@ We need to implement the following pages:
 - use it to make prettier navigation
   - use Image component for logo
   - usePathname hook to determine active route
+
+## More layout and content management
+
+- Add Container
+- Add About text
+- Add PokeballCounter

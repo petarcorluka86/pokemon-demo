@@ -17,9 +17,11 @@ export const PokemonListItemUI = ({ pokemon }: { pokemon?: Pokemon }) => {
       alignItems="center"
       p="lg"
     >
-      <Box pos="absolute" top="0" right="0">
-        <PokedexButton pokemonName={pokemon?.name || ""} compact />
-      </Box>
+      {pokemon && (
+        <Box pos="absolute" top="0" right="0">
+          <PokedexButton pokemonName={pokemon?.name || ""} compact />
+        </Box>
+      )}
       {pokemon ? (
         <>
           <Image

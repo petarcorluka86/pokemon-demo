@@ -1,12 +1,18 @@
 import Image from "next/image";
-import { styled } from "../../styled-system/jsx";
+import { Flex } from "../../styled-system/jsx";
 
-export default function Loader() {
+export default function Loader({
+  size = 100,
+  spin = true,
+}: {
+  size?: number;
+  spin?: boolean;
+}) {
   return (
-    <styled.div display="flex" justifyContent="center">
-      <div className="rotate">
-        <Image src="/logo.png" alt="Loading" width={100} height={100} />
+    <Flex display="flex" justifyContent="center" alignItems="center">
+      <div className={spin ? "rotate" : ""}>
+        <Image src="/logo.png" alt="Loading" width={size} height={size} />
       </div>
-    </styled.div>
+    </Flex>
   );
 }

@@ -12,9 +12,5 @@ export function PokemonListItemClient({ name }: { name: string }) {
     fetchPokemon(name).then((pokemon) => setPokemon(pokemon));
   }, [name]);
 
-  if (!pokemon) {
-    return null;
-  }
-
   return <PokemonListItemUI pokemon={pokemon} />;
 }

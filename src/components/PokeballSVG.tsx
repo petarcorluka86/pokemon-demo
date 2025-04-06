@@ -5,8 +5,8 @@ export default function PokeballSVG() {
       data-name="Layer 1"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 910.13 908.95"
-      width="68"
-      height="68"
+      width="84"
+      height="84"
     >
       <defs>
         <style>{`.cls-1{fill:#010101;}.cls-2{fill:#fff;}.cls-3{fill:#eb2127;}`}</style>

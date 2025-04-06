@@ -1,9 +1,11 @@
 import { fetchPokemons } from "@/utils/api";
 import { Grid } from "../../../../styled-system/jsx";
 import { PokemonListItemServer } from "@/components/PokemonLiServer";
+import { blockThread } from "@/utils/other";
 
 export default async function Pokemons() {
   const data = await fetchPokemons();
+  await blockThread(200);
 
   return (
     <Grid

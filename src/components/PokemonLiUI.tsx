@@ -25,7 +25,7 @@ export const PokemonListItemUI = ({ pokemon }: { pokemon?: Pokemon }) => {
           />
         </>
       ) : (
-        <Box p="lg">
+        <Box p="sm">
           <PokeballSVG />
         </Box>
       )}

@@ -21,6 +21,11 @@ export interface Pokemon {
       name: string;
     };
   }[];
+  moves: {
+    move: {
+      name: string;
+    };
+  }[];
   sprites: {
     front_default: string;
     back_default: string;

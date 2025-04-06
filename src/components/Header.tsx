@@ -38,7 +38,13 @@ export default function Header() {
             href="/pokemons"
             textDecoration={pathname === "/pokemons" ? "underline" : "none"}
           >
-            List
+            Inventory
+          </StyledLink>
+          <StyledLink
+            href="/pokedex"
+            textDecoration={pathname === "/pokedex" ? "underline" : "none"}
+          >
+            Pokedex
           </StyledLink>
         </styled.nav>
       </Container>

@@ -1,5 +1,5 @@
 import { fetchPokemons } from "@/utils/api";
-import { Grid } from "../../../styled-system/jsx";
+import { Grid } from "../../../../styled-system/jsx";
 import PokemonListItem from "@/components/PokemonListItem";
 
 export default async function Pokemons() {

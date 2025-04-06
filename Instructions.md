@@ -39,3 +39,15 @@ We need to implement the following pages:
 - Add Container
 - Add About text
 - Add PokeballCounter
+
+# Notes:
+
+- pokazi url strukturu odredenu folderima
+- pokazi grupiranje ruta u zajednicki layout pomocu zagrada
+- pokazi navigaciju putem link komponente
+- pokazi server i client komponente
+- pokazi citanje dinamickih parametara
+- pokazi loading na primjeru liste => skeleton (koristi block thread)
+- pokazi koliko znaci ako je i skeleton tezak
+- pokazi na primjeru pojedine kartice Suspense
+- pokazi error handling na pokemon detaljima

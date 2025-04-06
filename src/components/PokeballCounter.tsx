@@ -36,7 +36,9 @@ export default function PokeballCounter() {
       </Box>
       <Flex gap="lg" alignItems="center" justify="center">
         <Text fontSize="2xl">{count}</Text>
-        <Button onClick={() => setCount(0)}>Reset</Button>
+        <Button size="tertiary" onClick={() => setCount(0)}>
+          Reset
+        </Button>
       </Flex>
     </Flex>
   );

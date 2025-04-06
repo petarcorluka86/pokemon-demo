@@ -3,11 +3,14 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { Button } from "./Button";
 import { readFromStorage, writeToStorage } from "@/utils/storage";
+import { Flex } from "../../styled-system/jsx";
 
 export default function PokedexButton({
   pokemonName,
+  compact = false,
 }: {
   pokemonName: string;
+  compact?: boolean;
 }) {
   const [isInPokedex, setIsInPokedex] = useState<boolean | undefined>(
     undefined
@@ -33,6 +36,23 @@ export default function PokedexButton({
     }
     setIsInPokedex(!isInPokedex);
   };
+
+  if (compact) {
+    return (
+      <Flex
+        p="sm"
+        justifyContent="center"
+        alignItems="center"
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          handleClick();
+        }}
+      >
+        {isInPokedex === undefined ? null : isInPokedex ? "✅" : "☑️"}
+      </Flex>
+    );
+  }
 
   return (
     <Button variant="outline" size="tertiary" onClick={handleClick}>

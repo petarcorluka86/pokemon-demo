@@ -4,10 +4,12 @@ import Link from "next/link";
 import { Pokemon } from "@/utils/interface";
 import Image from "next/image";
 import PokeballSVG from "./PokeballSVG";
+import PokedexButton from "./PokedexButton";
 
 export const PokemonListItemUI = ({ pokemon }: { pokemon?: Pokemon }) => {
   const content = (
     <Flex
+      pos="relative"
       flexDirection="column"
       gap="lg"
       bg="surface.s1"
@@ -15,6 +17,9 @@ export const PokemonListItemUI = ({ pokemon }: { pokemon?: Pokemon }) => {
       alignItems="center"
       p="lg"
     >
+      <Box pos="absolute" top="0" right="0">
+        <PokedexButton pokemonName={pokemon?.name || ""} compact />
+      </Box>
       {pokemon ? (
         <>
           <Image

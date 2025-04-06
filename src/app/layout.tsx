@@ -22,7 +22,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <styled.body bg="surface.s0" className={font.className}>
+      <styled.body
+        bg="surface.s0"
+        className={font.className}
+        minH="calc(100vh + 1px)"
+      >
         <Header />
         <Container>{children}</Container>
       </styled.body>

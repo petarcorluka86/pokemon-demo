@@ -15,7 +15,7 @@ const StyledLink = styled(Link, {
 export default function Header() {
   const pathname = usePathname();
   return (
-    <styled.header position="sticky" top={0} zIndex="1" bg="header.primary">
+    <styled.header bg="header.primary">
       <Container>
         <styled.nav
           display="flex"

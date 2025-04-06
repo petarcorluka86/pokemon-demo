@@ -1,18 +1,12 @@
 import Image from "next/image";
 import { Flex } from "../../styled-system/jsx";
 import { Text } from "../../styled-system/jsx/text";
-import { fetchPokemon } from "@/utils/api";
 import Link from "next/link";
+import { Pokemon } from "@/utils/interface";
 
-export default async function PokemonListItem({ name }: { name: string }) {
-  const pokemon = await fetchPokemon(name);
-
-  if (!pokemon) {
-    return null;
-  }
-
+export const PokemonListItemUI = ({ pokemon }: { pokemon: Pokemon }) => {
   return (
-    <Link href={`/pokemons/${name}`}>
+    <Link href={`/pokemons/${pokemon.name}`}>
       <Flex
         flexDirection="column"
         gap="lg"
@@ -28,9 +22,9 @@ export default async function PokemonListItem({ name }: { name: string }) {
           height={100}
         />
         <Text textAlign="center" textTransform="uppercase">
-          {name}
+          {pokemon.name}
         </Text>
       </Flex>
     </Link>
   );
-}
+};

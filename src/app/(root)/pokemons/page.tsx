@@ -1,6 +1,6 @@
 import { fetchPokemons } from "@/utils/api";
 import { Grid } from "../../../../styled-system/jsx";
-import PokemonListItem from "@/components/PokemonListItem";
+import { PokemonListItemServer } from "@/components/PokemonLiServer";
 
 export default async function Pokemons() {
   const data = await fetchPokemons();
@@ -12,7 +12,7 @@ export default async function Pokemons() {
       width="100%"
     >
       {data?.results.map((pokemonListItem) => (
-        <PokemonListItem
+        <PokemonListItemServer
           key={pokemonListItem.name}
           name={pokemonListItem.name}
         />

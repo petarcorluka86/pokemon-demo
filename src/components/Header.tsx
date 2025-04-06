@@ -27,7 +27,6 @@ export default function Header() {
         >
           <StyledLink href="/" display="flex" gap="sm" alignItems="center">
             <Image src={Logo} alt="Pokemon" width={40} height={40} />
-            <styled.span>Pokemons</styled.span>
           </StyledLink>
           <StyledLink
             href="/"

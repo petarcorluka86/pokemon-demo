@@ -11,9 +11,9 @@ export const fetchPokemons = async () => {
   }
 };
 
-export const fetchPokemon = async (url: string) => {
+export const fetchPokemon = async (name: string) => {
   try {
-    const response = await fetch(url);
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
     const data: Pokemon = await response.json();
     return data;
   } catch (error) {

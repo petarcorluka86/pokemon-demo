@@ -13,9 +13,8 @@ export default async function Pokemons() {
     >
       {data?.results.map((pokemonListItem) => (
         <PokemonListItem
-          key={pokemonListItem.url}
+          key={pokemonListItem.name}
           name={pokemonListItem.name}
-          url={pokemonListItem.url}
         />
       ))}
     </Grid>

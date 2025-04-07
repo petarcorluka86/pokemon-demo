@@ -1,51 +1,152 @@
-# Next.js Project Guide
+# Pokemon app demo
 
-## Installation
+## Initial project setup
 
-- Run: `npx create-next-app@latest`
-- For detailed instructions, visit the [official documentation](https://nextjs.org/docs/app/getting-started/installation)
+1. Run `npx create-next-app@latest` to create "pokemon-app" ([read more](https://nextjs.org/docs/app/getting-started/installation))
+2. Run `npm run dev` and make project overview
+3. Clean `public` folder and add `logo.png`
+4. Replace `favicon.ico`
+5. Delete unnecessary content
+6. Add `predefined` folder to `src` and replace `global.css` import
+7. Run `npm install -D @pandacss/dev` and `npx panda init --postcss` ([read more](https://panda-css.com/docs/installation/nextjs#install-panda-css))
+8. Add `"panda": "panda codegen"` to scripts
 
-## Project Overview
+## Root layout
 
-- **Initial Cleanup**: Remove unused files and update some like `favicon.ico`
-- **Project Structure**: Checkout the [recommended structure](https://nextjs.org/docs/app/getting-started/project-structure)
-- **Data Source**: [PokéAPI](https://pokeapi.co/)
+```tsx
+import type { Metadata } from "next";
+import { Bubblegum_Sans } from "next/font/google";
+import "../predefined/globals.css";
+import Container from "@/predefined/ui/Container";
+import Header from "@/predefined/ui/Header";
+import { styled } from "../../styled-system/jsx";
 
-## Routing
+const font = Bubblegum_Sans({
+  weight: "400",
+  subsets: ["latin"],
+});
 
-We need to implement the following pages:
+export const metadata: Metadata = {
+  title: "Pokemon app",
+  description: "Sofascore Academy 2025 - demo app",
+};
 
-- About page
-- Pokémon list page
-- Individual Pokémon details page
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <styled.body
+        bg="surface.s0"
+        className={font.className}
+        minH="calc(100vh + 1px)"
+      >
+        <Header />
+        <Container>{children}</Container>
+      </styled.body>
+    </html>
+  );
+}
+```
 
-## Layout and Navigation
+9. Use `Bubblegum_Sans` font ([read more](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts))
+10. Update `metadata` ([read more](https://nextjs.org/docs/app/building-your-application/optimizing/metadata))
+11. Set minimal height on body and `surface.s0` background
+12. Add `Header` and wrap `children` in `Container`
+13. Inspect and test `Header` component
+14. Explain client and server components ([read more](https://nextjs.org/learn/react-foundations/server-and-client-components), [read even more](https://nextjs.org/docs/app/building-your-application/rendering))
 
-- Create a shared layout for all pages
-- Implement a navigation component within the layout
-  - Link component
-  - About and pokemons list (specific pokemons page later)
+## Basic routing and grouped routes
 
-## Design system
+15. Explain app router ([read more](https://nextjs.org/docs/app/building-your-application/routing))
+16. Add "About", "Inventory" and "Pokedex" pages
+17. Add `AboutPokemons` to About page
+18. Group `(root)` pages ([read more](https://nextjs.org/docs/app/building-your-application/routing/route-groups))
+19. Add nested layout for `(root)` pages ([read more](https://nextjs.org/docs/app/getting-started/layouts-and-pages))
 
-- install panda css: https://panda-css.com/docs/installation/nextjs#install-panda-css
-- update panda.config.ts
-- use it to make prettier navigation
-  - use Image component for logo
-  - usePathname hook to determine active route
+```tsx
+import { Flex, styled } from "../../../styled-system/jsx";
+import Links from "@/predefined/ui/Links";
+import PokeballCounterUI from "@/predefined/ui/PokeballCounterUI";
+import { useState } from "react";
 
-## More layout and content management
+export default function Layout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  const [count, setCount] = useState(0);
+  return (
+    <Flex gap="lg" p="lg" direction={{ base: "column-reverse", md: "row" }}>
+      <styled.main flex={1}>{children}</styled.main>
+      <styled.aside w={{ base: "100%", md: 308 }}>
+        <PokeballCounterUI count={count} setCount={setCount} />
+        <Links />
+      </styled.aside>
+    </Flex>
+  );
+}
+```
 
-- Add Container
-- Add About text
-- Add PokeballCounter
+20. Fix "hook on server" problem by extracting code to `PokeballCounter` client component
+21. Inspect `PokeballCounter` component state while navigating `(root)` pages
+
+## Server data Fetching and image access
+
+22. Add `utils/api.ts` to demonstrate server-side pokemons list fetch in an asynchronous React Server Component.
+
+```ts
+// import { blockThread } from "@/predefined/utils";
+import { Pokemon, PokemonListResponse } from "../predefined/interface";
+
+export const fetchPokemons = async () => {
+  try {
+    const URL = "https://pokeapi.co/api/v2/pokemon/?offset=20&limit=40";
+    const response = await fetch(URL);
+    const data: PokemonListResponse = await response.json();
+    // await blockThread(200);
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const fetchPokemon = async (name: string) => {
+  try {
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
+    const data: Pokemon = await response.json();
+    // await blockThread(Math.random() * 3000);
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+```
+
+23. Fetch pokemons and render it inside `PokemonGrid` component
+24. Create `PokemonLiServer` component which fetches and renders pokemon card on server
+25. Explain `images.remotePatterns` configuration ([read more](https://nextjs.org/docs/pages/building-your-application/optimizing/images))
+
+```ts
+ images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "raw.githubusercontent.com",
+        pathname: "/**",
+      },
+    ],
+  },
+```
+
+## Nested routing and dynamic params
+
+26.
 
 # Notes:
 
-- pokazi url strukturu odredenu folderima
-- pokazi grupiranje ruta u zajednicki layout pomocu zagrada
-- pokazi navigaciju putem link komponente
-- pokazi server i client komponente
 - pokazi citanje dinamickih parametara
 - pokazi loading na primjeru liste => skeleton (koristi block thread)
 - pokazi koliko znaci ako je i skeleton tezak

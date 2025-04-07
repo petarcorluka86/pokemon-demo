@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Pokemon } from "@/predefined/interface";
 import Image from "next/image";
 import PokeballSVG from "./PokeballSVG";
-import PokedexButton from "../../components/PokedexButton";
+import { ReactNode } from "react";
 
 /**
  * PokemonListItemUI is a presentational component.
@@ -11,7 +11,13 @@ import PokedexButton from "../../components/PokedexButton";
  *
  * @returns {React.ReactNode} The component's JSX.
  */
-export const PokemonListItemUI = ({ pokemon }: { pokemon?: Pokemon }) => {
+export const PokemonListItemUI = ({
+  pokemon,
+  topRightAction,
+}: {
+  pokemon?: Pokemon;
+  topRightAction?: ReactNode;
+}) => {
   const content = (
     <Flex
       pos="relative"
@@ -24,7 +30,7 @@ export const PokemonListItemUI = ({ pokemon }: { pokemon?: Pokemon }) => {
     >
       {pokemon && (
         <Box pos="absolute" top="0" right="0">
-          <PokedexButton pokemonName={pokemon?.name || ""} compact />
+          {topRightAction}
         </Box>
       )}
       {pokemon ? (

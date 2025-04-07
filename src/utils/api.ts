@@ -1,12 +1,12 @@
-import { Pokemon, PokemonListResponse } from "./interface";
-// import { blockThread } from "./other";
+// import { blockThread } from "@/predefined/utils";
+import { Pokemon, PokemonListResponse } from "../predefined/interface";
 
 export const fetchPokemons = async () => {
   try {
     const URL = "https://pokeapi.co/api/v2/pokemon/?offset=20&limit=40";
     const response = await fetch(URL);
     const data: PokemonListResponse = await response.json();
-    //  await blockThread(200);
+    // await blockThread(200);
     return data;
   } catch (error) {
     console.error(error);

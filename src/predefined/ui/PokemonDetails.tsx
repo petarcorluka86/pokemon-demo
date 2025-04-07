@@ -1,10 +1,9 @@
-import { Pokemon } from "@/utils/interface";
-import { Box, Divider, Flex, styled } from "../../styled-system/jsx";
+import { Pokemon } from "@/predefined/interface";
+import { Box, Divider, Flex, styled } from "../../../styled-system/jsx";
 import Image from "next/image";
 import { ReactNode } from "react";
 
 import { Button } from "./Button";
-import PokedexButton from "./PokedexButton";
 
 const NameValue = ({
   name,
@@ -63,7 +62,7 @@ const Moves = ({ pokemon }: { pokemon: Pokemon }) => {
         Moves
       </styled.span>
       <Flex wrap="wrap" gap="sm" justifyContent="center">
-        {pokemon.moves.map((move) => (
+        {pokemon.moves.slice(0, 70).map((move) => (
           <Button variant="outline" size="tertiary" key={move.move.name}>
             {move.move.name}
           </Button>
@@ -73,7 +72,13 @@ const Moves = ({ pokemon }: { pokemon: Pokemon }) => {
   );
 };
 
-export default function PokemonDetails({ pokemon }: { pokemon: Pokemon }) {
+export default function PokemonDetails({
+  pokemon,
+  topRightAction,
+}: {
+  pokemon: Pokemon;
+  topRightAction: ReactNode;
+}) {
   return (
     <Box p="lg">
       <Flex justifyContent="space-between" alignItems="center" mb="sm" gap="sm">
@@ -84,7 +89,7 @@ export default function PokemonDetails({ pokemon }: { pokemon: Pokemon }) {
         >
           #{pokemon.name}
         </styled.h1>
-        <PokedexButton pokemonName={pokemon.name} />
+        {topRightAction}
       </Flex>
 
       <Flex

@@ -1,6 +1,5 @@
 import { fetchPokemon } from "@/utils/api";
-
-import { PokemonListItemUI } from "./PokemonLiUI";
+import { PokemonListItemUI } from "../predefined/ui/PokemonLiUI";
 
 export async function PokemonListItemServer({ name }: { name: string }) {
   const pokemon = await fetchPokemon(name);

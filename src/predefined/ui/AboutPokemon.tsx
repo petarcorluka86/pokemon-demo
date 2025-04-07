@@ -1,4 +1,4 @@
-import { styled } from "../../styled-system/jsx";
+import { styled } from "../../../styled-system/jsx";
 
 const Wrap = styled("div", {
   base: {
@@ -25,6 +25,12 @@ const Wrap = styled("div", {
   },
 });
 
+/**
+ * AboutPokemons is presentational component.
+ * It is used to display information about Pokémon on the About page.
+ *
+ * @returns {React.ReactNode} The component's JSX.
+ */
 export default function AboutPokemons() {
   return (
     <Wrap>

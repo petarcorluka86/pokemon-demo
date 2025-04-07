@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Bubblegum_Sans } from "next/font/google";
-import "./globals.css";
-import Header from "@/components/Header";
-import Container from "@/components/Container";
+import "../predefined/globals.css";
+import Header from "@/predefined/ui/Header";
+import Container from "@/predefined/ui/Container";
 import { styled } from "../../styled-system/jsx";
+import { PokedexProvider } from "@/predefined/PokedexContext";
 
 const font = Bubblegum_Sans({
   weight: "400",
@@ -27,8 +28,10 @@ export default function RootLayout({
         className={font.className}
         minH="calc(100vh + 1px)"
       >
-        <Header />
-        <Container>{children}</Container>
+        <PokedexProvider>
+          <Header />
+          <Container>{children}</Container>
+        </PokedexProvider>
       </styled.body>
     </html>
   );

@@ -1,9 +1,7 @@
 "use client";
-import { useState } from "react";
-import { useEffect } from "react";
-import { Button } from "./Button";
-import { readFromStorage, writeToStorage } from "@/utils/storage";
-import { Flex } from "../../styled-system/jsx";
+
+import { usePokedex } from "../predefined/PokedexContext";
+import PokedexButtonUI from "@/predefined/ui/PokedexButtonUI";
 
 export default function PokedexButton({
   pokemonName,
@@ -12,55 +10,21 @@ export default function PokedexButton({
   pokemonName: string;
   compact?: boolean;
 }) {
-  const [isInPokedex, setIsInPokedex] = useState<boolean | undefined>(
-    undefined
-  );
-
-  useEffect(() => {
-    const pokedex = readFromStorage<string[]>("pokedex", []);
-    const isInPokedex = pokedex.includes(pokemonName);
-    setIsInPokedex(isInPokedex);
-  }, [pokemonName]);
-
-  const handleClick = () => {
-    if (isInPokedex === undefined) {
-      return;
-    }
-    const pokedex = readFromStorage<string[]>("pokedex", []);
-    if (isInPokedex) {
-      const newPokedex = pokedex.filter((name) => name !== pokemonName);
-      writeToStorage("pokedex", newPokedex);
-    } else {
-      pokedex.push(pokemonName);
-      writeToStorage("pokedex", pokedex);
-    }
-    setIsInPokedex(!isInPokedex);
-  };
-
-  if (compact) {
-    return (
-      <Flex
-        p="sm"
-        justifyContent="center"
-        alignItems="center"
-        onClick={(e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          handleClick();
-        }}
-      >
-        {isInPokedex === undefined ? null : isInPokedex ? "✅" : "☑️"}
-      </Flex>
-    );
-  }
+  const { isPokemonInPokedex, addPokemon, removePokemon, isLoading } =
+    usePokedex();
+  const isInPokedex = isPokemonInPokedex(pokemonName);
 
   return (
-    <Button variant="outline" size="tertiary" onClick={handleClick}>
-      {isInPokedex === undefined
-        ? "Loading..."
-        : isInPokedex
-          ? "Remove from Pokedex"
-          : "Add to Pokedex"}
-    </Button>
+    <PokedexButtonUI
+      isInPokedex={isInPokedex}
+      compact={compact}
+      handleClick={() =>
+        isLoading
+          ? null
+          : isInPokedex
+            ? removePokemon(pokemonName)
+            : addPokemon(pokemonName)
+      }
+    />
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
-import { styled } from "../../styled-system/jsx";
-import Logo from "../../public/logo.png";
+import { styled } from "../../../styled-system/jsx";
+import Logo from "../../../public/logo.png";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import Container from "./Container";
@@ -12,6 +12,13 @@ const StyledLink = styled(Link, {
   },
 });
 
+/**
+ * Header is a presentational component.
+ * It is used to render a header in the UI.
+ * It uses usePathname to get the current pathname and use it to decorate the active link.
+ *
+ * @returns {React.ReactNode} The component's JSX.
+ */
 export default function Header() {
   const pathname = usePathname();
   return (

@@ -1,3 +1,9 @@
+/**
+ * PokeballSVG is a presentational component.
+ * It is used to render a Pokeball SVG.
+ *
+ * @returns {React.ReactNode} The component's JSX.
+ */
 export default function PokeballSVG() {
   return (
     <svg

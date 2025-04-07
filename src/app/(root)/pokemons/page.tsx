@@ -1,23 +1,23 @@
 import { fetchPokemons } from "@/utils/api";
-import { Grid } from "../../../../styled-system/jsx";
 import { PokemonListItemServer } from "@/components/PokemonLiServer";
 import { Suspense } from "react";
-import { PokemonListItemUI } from "@/components/PokemonLiUI";
+import { PokemonListItemUI } from "@/predefined/ui/PokemonLiUI";
+import PokemonGrid from "@/predefined/ui/PokemonGrid";
 
 export default async function Pokemons() {
   const data = await fetchPokemons();
 
   return (
-    <Grid
-      gridTemplateColumns="repeat(auto-fill, minmax(140px, 1fr))"
-      gap="lg"
-      width="100%"
+    <PokemonGrid
+      title="Browse pokemons"
+      isLoading={false}
+      isEmpty={!data?.results.length}
     >
       {data?.results.map((pokemonListItem) => (
         <Suspense key={pokemonListItem.name} fallback={<PokemonListItemUI />}>
           <PokemonListItemServer name={pokemonListItem.name} />
         </Suspense>
       ))}
-    </Grid>
+    </PokemonGrid>
   );
 }

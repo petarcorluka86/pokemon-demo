@@ -4,7 +4,7 @@ import { PokemonListItemClient } from "@/components/PokemonLiClient";
 import { readFromStorage } from "@/utils/storage";
 import { useEffect, useState } from "react";
 import { Box, Grid, styled } from "../../../../styled-system/jsx";
-import { Text } from "../../../../styled-system/jsx/text";
+
 import Loader from "@/components/Loader";
 
 export default function PokedexPage() {
@@ -22,7 +22,7 @@ export default function PokedexPage() {
       {pokemons === undefined ? (
         <Loader />
       ) : pokemons.length === 0 ? (
-        <Text>No pokemons in your Pokedex</Text>
+        <styled.span>No pokemons in your Pokedex</styled.span>
       ) : (
         <Grid
           gridTemplateColumns="repeat(auto-fill, minmax(140px, 1fr))"

@@ -1,5 +1,4 @@
-import { Box, Flex } from "../../styled-system/jsx";
-import { Text } from "../../styled-system/jsx/text";
+import { Box, Flex, styled } from "../../styled-system/jsx";
 import Link from "next/link";
 import { Pokemon } from "@/utils/interface";
 import Image from "next/image";
@@ -36,9 +35,9 @@ export const PokemonListItemUI = ({ pokemon }: { pokemon?: Pokemon }) => {
           <PokeballSVG />
         </Box>
       )}
-      <Text textAlign="center" textTransform="uppercase">
+      <styled.span textAlign="center" textTransform="uppercase">
         {pokemon?.name || "Loading..."}
-      </Text>
+      </styled.span>
     </Flex>
   );
 

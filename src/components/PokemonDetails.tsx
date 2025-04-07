@@ -2,7 +2,7 @@ import { Pokemon } from "@/utils/interface";
 import { Box, Divider, Flex, styled } from "../../styled-system/jsx";
 import Image from "next/image";
 import { ReactNode } from "react";
-import { Text } from "../../styled-system/jsx/text";
+
 import { Button } from "./Button";
 import PokedexButton from "./PokedexButton";
 
@@ -15,8 +15,8 @@ const NameValue = ({
 }) => {
   return (
     <Flex justify="space-between">
-      <Text textTransform="capitalize">{name}:</Text>
-      <Text>{value}</Text>
+      <styled.span textTransform="capitalize">{name}:</styled.span>
+      <styled.span>{value}</styled.span>
     </Flex>
   );
 };
@@ -31,9 +31,9 @@ const Details = ({ pokemon }: { pokemon: Pokemon }) => {
       flexDirection="column"
       gap="lg"
     >
-      <Text textAlign="center" fontSize="xl">
+      <styled.span textAlign="center" fontSize="xl">
         Details
-      </Text>
+      </styled.span>
 
       <NameValue name="Height" value={`${pokemon.height} cm`} />
       <NameValue name="Weight" value={`${pokemon.weight} kg`} />
@@ -59,9 +59,9 @@ const Moves = ({ pokemon }: { pokemon: Pokemon }) => {
       flexDirection="column"
       gap="lg"
     >
-      <Text textAlign="center" fontSize="xl">
+      <styled.span textAlign="center" fontSize="xl">
         Moves
-      </Text>
+      </styled.span>
       <Flex wrap="wrap" gap="sm" justifyContent="center">
         {pokemon.moves.map((move) => (
           <Button variant="outline" size="tertiary" key={move.move.name}>
@@ -101,9 +101,9 @@ export default function PokemonDetails({ pokemon }: { pokemon: Pokemon }) {
           w={{ base: "100%", md: "auto" }}
         >
           <Box>
-            <Text textAlign="center" fontSize="xl">
+            <styled.span textAlign="center" fontSize="xl">
               Front
-            </Text>
+            </styled.span>
             <Image
               src={pokemon.sprites.front_default}
               alt={pokemon.name}
@@ -112,9 +112,9 @@ export default function PokemonDetails({ pokemon }: { pokemon: Pokemon }) {
             />
           </Box>
           <Box>
-            <Text textAlign="center" fontSize="xl">
+            <styled.span textAlign="center" fontSize="xl">
               Back
-            </Text>
+            </styled.span>
             <Image
               src={pokemon.sprites.back_default}
               alt={pokemon.name}

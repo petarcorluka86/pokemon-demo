@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import { Box, Flex, styled } from "../../styled-system/jsx";
-import { Text } from "../../styled-system/jsx/text";
 import { Button } from "./Button";
 import { useState } from "react";
 
@@ -35,7 +34,7 @@ export default function PokeballCounter() {
         />
       </Box>
       <Flex gap="lg" alignItems="center" justify="center">
-        <Text fontSize="2xl">{count}</Text>
+        <styled.span fontSize="2xl">{count}</styled.span>
         <Button size="tertiary" onClick={() => setCount(0)}>
           Reset
         </Button>

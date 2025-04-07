@@ -51,3 +51,4 @@ We need to implement the following pages:
 - pokazi koliko znaci ako je i skeleton tezak
 - pokazi na primjeru pojedine kartice Suspense
 - pokazi error handling na pokemon detaljima
+- pokazi fetchanje na klijentu i serveru

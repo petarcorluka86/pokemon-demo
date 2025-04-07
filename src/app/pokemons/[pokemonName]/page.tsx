@@ -1,4 +1,5 @@
-import PokemonDetails from "@/components/PokemonDetails";
+import PokedexButton from "@/components/PokedexButton";
+import PokemonDetails from "@/ui/PokemonDetails";
 import { fetchPokemon } from "@/utils/api";
 export default async function Pokemon({
   params,
@@ -12,5 +13,10 @@ export default async function Pokemon({
     throw new Error("Pokemon not found");
   }
 
-  return <PokemonDetails pokemon={pokemon} />;
+  return (
+    <PokemonDetails
+      pokemon={pokemon}
+      topRightAction={<PokedexButton pokemonName={pokemon.name} />}
+    />
+  );
 }

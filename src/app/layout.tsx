@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Bubblegum_Sans } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
-import Container from "@/components/Container";
+import Header from "@/ui/Header";
+import Container from "@/ui/Container";
 import { styled } from "../../styled-system/jsx";
 import { PokedexProvider } from "@/components/PokedexContext";
 

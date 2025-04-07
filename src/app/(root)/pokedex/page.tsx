@@ -5,7 +5,7 @@ import { readFromStorage } from "@/utils/storage";
 import { useEffect, useState } from "react";
 import { Box, Grid, styled } from "../../../../styled-system/jsx";
 
-import Loader from "@/components/Loader";
+import Loader from "@/ui/Loader";
 
 export default function PokedexPage() {
   const [pokemons, setPokemons] = useState<string[] | undefined>(undefined);

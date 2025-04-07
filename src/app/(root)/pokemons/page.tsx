@@ -2,7 +2,7 @@ import { fetchPokemons } from "@/utils/api";
 import { Grid } from "../../../../styled-system/jsx";
 import { PokemonListItemServer } from "@/components/PokemonLiServer";
 import { Suspense } from "react";
-import { PokemonListItemUI } from "@/components/PokemonLiUI";
+import { PokemonListItemUI } from "@/ui/PokemonLiUI";
 
 export default async function Pokemons() {
   const data = await fetchPokemons();

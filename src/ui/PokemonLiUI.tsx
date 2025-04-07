@@ -3,8 +3,14 @@ import Link from "next/link";
 import { Pokemon } from "@/utils/interface";
 import Image from "next/image";
 import PokeballSVG from "./PokeballSVG";
-import PokedexButton from "./PokedexButton";
+import PokedexButton from "../components/PokedexButton";
 
+/**
+ * PokemonListItemUI is a presentational component.
+ * It is used to render a Pokemon list item in the UI.
+ *
+ * @returns {React.ReactNode} The component's JSX.
+ */
 export const PokemonListItemUI = ({ pokemon }: { pokemon?: Pokemon }) => {
   const content = (
     <Flex

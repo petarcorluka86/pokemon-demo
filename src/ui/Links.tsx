@@ -2,6 +2,12 @@ import Link from "next/link";
 import { Flex } from "../../styled-system/jsx";
 import { Button } from "./Button";
 
+/**
+ * Links is a presentational component.
+ * It is used to render a list of links in the UI.
+ *
+ * @returns {React.ReactNode} The component's JSX.
+ */
 export default function Links() {
   return (
     <Flex gap="xs" hideBelow="md" mt="lg" justify="space-evenly">

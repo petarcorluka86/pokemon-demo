@@ -1,6 +1,6 @@
 "use client"; // Error boundaries must be Client Components
 
-import { Button } from "@/components/Button";
+import { Button } from "@/ui/Button";
 import { useEffect } from "react";
 import { Flex, styled } from "../../../../styled-system/jsx";
 

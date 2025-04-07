@@ -12,6 +12,13 @@ const StyledLink = styled(Link, {
   },
 });
 
+/**
+ * Header is a presentational component.
+ * It is used to render a header in the UI.
+ * It uses usePathname to get the current pathname and use it to decorate the active link.
+ *
+ * @returns {React.ReactNode} The component's JSX.
+ */
 export default function Header() {
   const pathname = usePathname();
   return (

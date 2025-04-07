@@ -1,9 +1,7 @@
 "use client";
-import { useState } from "react";
-import { useEffect } from "react";
 import { Button } from "./Button";
-import { readFromStorage, writeToStorage } from "@/utils/storage";
 import { Flex } from "../../styled-system/jsx";
+import { usePokedex } from "./PokedexContext";
 
 export default function PokedexButton({
   pokemonName,
@@ -12,29 +10,15 @@ export default function PokedexButton({
   pokemonName: string;
   compact?: boolean;
 }) {
-  const [isInPokedex, setIsInPokedex] = useState<boolean | undefined>(
-    undefined
-  );
-
-  useEffect(() => {
-    const pokedex = readFromStorage<string[]>("pokedex", []);
-    const isInPokedex = pokedex.includes(pokemonName);
-    setIsInPokedex(isInPokedex);
-  }, [pokemonName]);
+  const { isPokemonInPokedex, addPokemon, removePokemon } = usePokedex();
+  const isInPokedex = isPokemonInPokedex(pokemonName);
 
   const handleClick = () => {
-    if (isInPokedex === undefined) {
-      return;
-    }
-    const pokedex = readFromStorage<string[]>("pokedex", []);
     if (isInPokedex) {
-      const newPokedex = pokedex.filter((name) => name !== pokemonName);
-      writeToStorage("pokedex", newPokedex);
+      removePokemon(pokemonName);
     } else {
-      pokedex.push(pokemonName);
-      writeToStorage("pokedex", pokedex);
+      addPokemon(pokemonName);
     }
-    setIsInPokedex(!isInPokedex);
   };
 
   if (compact) {

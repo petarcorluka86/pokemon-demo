@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Container from "@/components/Container";
 import { styled } from "../../styled-system/jsx";
+import { PokedexProvider } from "@/components/PokedexContext";
 
 const font = Bubblegum_Sans({
   weight: "400",
@@ -27,8 +28,10 @@ export default function RootLayout({
         className={font.className}
         minH="calc(100vh + 1px)"
       >
-        <Header />
-        <Container>{children}</Container>
+        <PokedexProvider>
+          <Header />
+          <Container>{children}</Container>
+        </PokedexProvider>
       </styled.body>
     </html>
   );

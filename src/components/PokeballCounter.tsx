@@ -5,7 +5,7 @@ import { Button } from "./Button";
 import { useState } from "react";
 
 export default function PokeballCounter() {
-  const [count, setCount] = useState(10);
+  const [count, setCount] = useState(0);
   return (
     <Flex
       direction={{ base: "row", md: "column" }}

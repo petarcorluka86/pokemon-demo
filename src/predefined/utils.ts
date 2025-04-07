@@ -40,3 +40,16 @@ export function writeToStorage<T>(key: string, value: T): boolean {
     return false;
   }
 }
+
+/**
+ * Blocks the thread for the given number of milliseconds
+ * @param ms Number of milliseconds to block the thread
+ * @returns A promise that resolves to true
+ */
+export function blockThread(ms: number) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(true);
+    }, ms);
+  });
+}

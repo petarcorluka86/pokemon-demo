@@ -1,4 +1,4 @@
-import { Pokemon } from "@/utils/interface";
+import { Pokemon } from "@/predefined/interface";
 import { Box, Divider, Flex, styled } from "../../../styled-system/jsx";
 import Image from "next/image";
 import { ReactNode } from "react";

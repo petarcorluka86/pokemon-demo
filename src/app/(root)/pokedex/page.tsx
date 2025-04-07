@@ -1,7 +1,7 @@
 "use client";
 
 import { PokemonListItemClient } from "@/components/PokemonLiClient";
-import { readFromStorage } from "@/utils/storage";
+import { readFromStorage } from "@/predefined/utils";
 import { useEffect, useState } from "react";
 import { Box, Grid, styled } from "../../../../styled-system/jsx";
 

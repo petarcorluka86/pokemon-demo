@@ -3,7 +3,7 @@ import { fetchPokemon } from "@/utils/api";
 
 import { PokemonListItemUI } from "../predefined/ui/PokemonLiUI";
 import { useEffect, useState } from "react";
-import { Pokemon } from "@/utils/interface";
+import { Pokemon } from "@/predefined/interface";
 
 export function PokemonListItemClient({ name }: { name: string }) {
   const [pokemon, setPokemon] = useState<Pokemon | undefined>(undefined);

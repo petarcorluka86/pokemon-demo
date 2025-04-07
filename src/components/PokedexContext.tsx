@@ -7,7 +7,7 @@ import React, {
   useEffect,
   ReactNode,
 } from "react";
-import { readFromStorage, writeToStorage } from "@/utils/storage";
+import { readFromStorage, writeToStorage } from "@/predefined/utils";
 
 type PokedexContextType = {
   pokedex: string[];

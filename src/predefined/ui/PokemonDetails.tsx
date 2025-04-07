@@ -77,7 +77,7 @@ export default function PokemonDetails({
   topRightAction,
 }: {
   pokemon: Pokemon;
-  topRightAction: ReactNode;
+  topRightAction?: ReactNode;
 }) {
   return (
     <Box p="lg">

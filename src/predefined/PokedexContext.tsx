@@ -1,5 +1,4 @@
 "use client";
-
 import React, {
   createContext,
   useContext,
@@ -14,6 +13,7 @@ type PokedexContextType = {
   addPokemon: (name: string) => void;
   removePokemon: (name: string) => void;
   isPokemonInPokedex: (name: string) => boolean;
+  isLoading: boolean;
 };
 
 const PokedexContext = createContext<PokedexContextType>({
@@ -21,16 +21,17 @@ const PokedexContext = createContext<PokedexContextType>({
   addPokemon: () => {},
   removePokemon: () => {},
   isPokemonInPokedex: () => false,
+  isLoading: true,
 });
-
-export const usePokedex = () => useContext(PokedexContext);
 
 export const PokedexProvider = ({ children }: { children: ReactNode }) => {
   const [pokedex, setPokedex] = useState<string[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const storedPokedex = readFromStorage<string[]>("pokedex", []);
     setPokedex(storedPokedex);
+    setIsLoading(false);
   }, []);
 
   const isPokemonInPokedex = (name: string) => {
@@ -53,7 +54,13 @@ export const PokedexProvider = ({ children }: { children: ReactNode }) => {
 
   return (
     <PokedexContext.Provider
-      value={{ pokedex, addPokemon, removePokemon, isPokemonInPokedex }}
+      value={{
+        pokedex,
+        addPokemon,
+        removePokemon,
+        isPokemonInPokedex,
+        isLoading,
+      }}
     >
       {children}
     </PokedexContext.Provider>
@@ -61,3 +68,5 @@ export const PokedexProvider = ({ children }: { children: ReactNode }) => {
 };
 
 export default PokedexContext;
+
+export const usePokedex = () => useContext(PokedexContext);

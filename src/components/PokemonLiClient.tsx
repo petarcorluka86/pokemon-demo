@@ -1,6 +1,6 @@
 "use client";
-import { fetchPokemon } from "@/utils/api";
 
+import { fetchPokemon } from "@/utils/api";
 import { PokemonListItemUI } from "../predefined/ui/PokemonLiUI";
 import { useEffect, useState } from "react";
 import { Pokemon } from "@/predefined/interface";

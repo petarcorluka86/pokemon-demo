@@ -1,5 +1,6 @@
 "use client";
-import { usePokedex } from "./PokedexContext";
+
+import { usePokedex } from "../predefined/PokedexContext";
 import PokedexButtonUI from "@/predefined/ui/PokedexButtonUI";
 
 export default function PokedexButton({
@@ -9,7 +10,8 @@ export default function PokedexButton({
   pokemonName: string;
   compact?: boolean;
 }) {
-  const { isPokemonInPokedex, addPokemon, removePokemon } = usePokedex();
+  const { isPokemonInPokedex, addPokemon, removePokemon, isLoading } =
+    usePokedex();
   const isInPokedex = isPokemonInPokedex(pokemonName);
 
   return (
@@ -17,7 +19,11 @@ export default function PokedexButton({
       isInPokedex={isInPokedex}
       compact={compact}
       handleClick={() =>
-        isInPokedex ? removePokemon(pokemonName) : addPokemon(pokemonName)
+        isLoading
+          ? null
+          : isInPokedex
+            ? removePokemon(pokemonName)
+            : addPokemon(pokemonName)
       }
     />
   );

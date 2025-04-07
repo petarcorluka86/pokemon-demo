@@ -62,7 +62,7 @@ const Moves = ({ pokemon }: { pokemon: Pokemon }) => {
         Moves
       </styled.span>
       <Flex wrap="wrap" gap="sm" justifyContent="center">
-        {pokemon.moves.map((move) => (
+        {pokemon.moves.slice(0, 70).map((move) => (
           <Button variant="outline" size="tertiary" key={move.move.name}>
             {move.move.name}
           </Button>

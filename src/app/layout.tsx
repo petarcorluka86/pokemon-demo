@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Bubblegum_Sans } from "next/font/google";
-import "./globals.css";
+import "../predefined/globals.css";
 import Header from "@/predefined/ui/Header";
 import Container from "@/predefined/ui/Container";
 import { styled } from "../../styled-system/jsx";
-import { PokedexProvider } from "@/components/PokedexContext";
+import { PokedexProvider } from "@/predefined/PokedexContext";
 
 const font = Bubblegum_Sans({
   weight: "400",

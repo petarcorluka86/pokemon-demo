@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Flex } from "../../styled-system/jsx";
+import { Flex } from "../../../styled-system/jsx";
 import { Button } from "./Button";
 
 /**

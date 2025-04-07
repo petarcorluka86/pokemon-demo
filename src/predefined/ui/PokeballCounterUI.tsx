@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { Box, Flex, styled } from "../../styled-system/jsx";
-import { Button } from "../ui/Button";
+import { Box, Flex, styled } from "../../../styled-system/jsx";
+import { Button } from "./Button";
 
 export default function PokeballCounterUI({
   count,

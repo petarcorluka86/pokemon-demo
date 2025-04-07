@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
-import { styled } from "../../styled-system/jsx";
-import Logo from "../../public/logo.png";
+import { styled } from "../../../styled-system/jsx";
+import Logo from "../../../public/logo.png";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import Container from "./Container";

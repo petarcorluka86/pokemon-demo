@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Flex } from "../../styled-system/jsx";
+import { Flex } from "../../../styled-system/jsx";
 
 /**
  * Loader is a presentational component.

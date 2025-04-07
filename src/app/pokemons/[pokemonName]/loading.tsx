@@ -1,4 +1,4 @@
-import Loader from "@/ui/Loader";
+import Loader from "@/predefined/ui/Loader";
 import { Box, styled } from "../../../../styled-system/jsx";
 
 export default function PokemonLoading() {

@@ -1,5 +1,5 @@
-import { styled } from "../../styled-system/jsx";
-import { button } from "../../styled-system/recipes";
+import { styled } from "../../../styled-system/jsx";
+import { button } from "../../../styled-system/recipes";
 
 /**
  * Button is a presentational component.

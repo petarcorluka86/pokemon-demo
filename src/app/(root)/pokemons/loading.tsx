@@ -1,4 +1,4 @@
-import { PokemonListItemUI } from "@/ui/PokemonLiUI";
+import { PokemonListItemUI } from "@/predefined/ui/PokemonLiUI";
 import { Grid } from "../../../../styled-system/jsx";
 
 export default function PokemonsSkeleton() {

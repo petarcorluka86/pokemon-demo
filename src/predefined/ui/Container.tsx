@@ -1,5 +1,5 @@
 import { PropsWithChildren } from "react";
-import { Box } from "../../styled-system/jsx";
+import { Box } from "../../../styled-system/jsx";
 
 /**
  * Container is a presentational component.

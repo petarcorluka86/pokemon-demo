@@ -1,5 +1,5 @@
 import PokedexButton from "@/components/PokedexButton";
-import PokemonDetails from "@/ui/PokemonDetails";
+import PokemonDetails from "@/predefined/ui/PokemonDetails";
 import { fetchPokemon } from "@/utils/api";
 export default async function Pokemon({
   params,

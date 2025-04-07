@@ -1,9 +1,9 @@
-import { Box, Flex, styled } from "../../styled-system/jsx";
+import { Box, Flex, styled } from "../../../styled-system/jsx";
 import Link from "next/link";
 import { Pokemon } from "@/utils/interface";
 import Image from "next/image";
 import PokeballSVG from "./PokeballSVG";
-import PokedexButton from "../components/PokedexButton";
+import PokedexButton from "../../components/PokedexButton";
 
 /**
  * PokemonListItemUI is a presentational component.

@@ -1,4 +1,4 @@
-import { Flex } from "../../styled-system/jsx";
+import { Flex } from "../../../styled-system/jsx";
 import { Button } from "./Button";
 
 export default function PokedexButtonUI({

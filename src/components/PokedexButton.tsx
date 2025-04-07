@@ -1,6 +1,6 @@
 "use client";
 import { usePokedex } from "./PokedexContext";
-import PokedexButtonUI from "@/ui/PokedexButtonUI";
+import PokedexButtonUI from "@/predefined/ui/PokedexButtonUI";
 
 export default function PokedexButton({
   pokemonName,

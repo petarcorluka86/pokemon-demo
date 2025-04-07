@@ -1,6 +1,6 @@
 import { Flex, styled } from "../../../styled-system/jsx";
 import PokeballCounter from "@/components/PokeballCounter";
-import Links from "@/ui/Links";
+import Links from "@/predefined/ui/Links";
 
 export default function Layout({
   children,

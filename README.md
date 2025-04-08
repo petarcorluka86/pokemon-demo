@@ -105,9 +105,13 @@ export const fetchPokemons = async () => {
   try {
     const URL = "https://pokeapi.co/api/v2/pokemon/?offset=20&limit=40";
     const response = await fetch(URL);
-    const data: PokemonListResponse = await response.json();
-    // await blockThread(200);
-    return data;
+    if (response.status === 200) {
+      const data: PokemonListResponse = await response.json();
+      // await blockThread(200);
+      return data;
+    } else {
+      throw new Error("Failed to fetch pokemons");
+    }
   } catch (error) {
     console.error(error);
   }
@@ -116,9 +120,13 @@ export const fetchPokemons = async () => {
 export const fetchPokemon = async (name: string) => {
   try {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
-    const data: Pokemon = await response.json();
-    // await blockThread(Math.random() * 3000);
-    return data;
+    if (response.status === 200) {
+      const data: Pokemon = await response.json();
+      // await blockThread(Math.random() * 3000);
+      return data;
+    } else {
+      throw new Error("Failed to fetch pokemon");
+    }
   } catch (error) {
     console.error(error);
   }
@@ -158,11 +166,14 @@ export const fetchPokemon = async (name: string) => {
 ## Top level error handling
 
 34. Demonstrate usage of `error.tsx` file
-35.
+35. Demonstrate usage of `notFound` function by creating `not-found` file ([read more](https://nextjs.org/docs/app/api-reference/functions/not-found))
+
+## Loading and Suspense
+
+36.
 
 # Jos za dodati:
 
 - pokazi loading na primjeru liste => skeleton (koristi block thread)
 - pokazi koliko znaci ako je i skeleton tezak
 - pokazi na primjeru pojedine kartice Suspense
-- pokazi error handling na pokemon detaljima

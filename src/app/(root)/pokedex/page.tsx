@@ -3,11 +3,15 @@
 import { PokemonListItemClient } from "@/components/PokemonLiClient";
 
 import PokemonGrid from "@/predefined/ui/PokemonGrid";
-import { PokemonListItemUI } from "@/predefined/ui/PokemonLiUI";
 import { usePokedex } from "@/predefined/PokedexContext";
+import PokemonsSkeleton from "@/predefined/ui/PokemonSkeleton";
 
 export default function PokedexPage() {
   const { pokedex, isLoading } = usePokedex();
+
+  if (isLoading) {
+    return <PokemonsSkeleton />;
+  }
 
   return (
     <PokemonGrid
@@ -15,13 +19,9 @@ export default function PokedexPage() {
       isLoading={isLoading}
       isEmpty={!pokedex?.length}
     >
-      {isLoading
-        ? Array.from({ length: 20 }).map((_, index) => (
-            <PokemonListItemUI key={index} />
-          ))
-        : pokedex?.map((pokemon) => (
-            <PokemonListItemClient key={pokemon} name={pokemon} />
-          ))}
+      {pokedex?.map((pokemon) => (
+        <PokemonListItemClient key={pokemon} name={pokemon} />
+      ))}
     </PokemonGrid>
   );
 }

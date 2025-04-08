@@ -170,10 +170,11 @@ export const fetchPokemon = async (name: string) => {
 
 ## Loading and Suspense
 
-36.
+36. Block thread when fetching pokemons to demonstrate inventory page loading time
+37. Demonstrate usage of `loading.tsx` file
+38. Demonstrate usage of `Suspense` by blocking `fetchPokemon` function and wrapping `PokemonLiServer` in `Suspense`
+39. Demonstrate importance of `loading.tsx` file weight by using simple card placeholder
 
-# Jos za dodati:
-
-- pokazi loading na primjeru liste => skeleton (koristi block thread)
-- pokazi koliko znaci ako je i skeleton tezak
-- pokazi na primjeru pojedine kartice Suspense
+```tsx
+<Box h={172} bg="surface.s1" borderRadius="lg" key={index} />
+```

@@ -180,3 +180,7 @@ export const fetchPokemon = async (name: string) => {
 ```tsx
 <Box h={172} bg="surface.s1" borderRadius="lg" key={index} />
 ```
+
+# More
+
+## [Hydration explained](Hydration.md)

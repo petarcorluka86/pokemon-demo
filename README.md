@@ -1,5 +1,7 @@
 # Pokemon app demo
 
+You can find deployed version of finished app on ([Vercel](https://pokemon-demo-alpha.vercel.app/)).
+
 ## Initial project setup
 
 1. Run `npx create-next-app@latest` to create "pokemon-app" ([read more](https://nextjs.org/docs/app/getting-started/installation))

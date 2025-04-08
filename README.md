@@ -186,3 +186,5 @@ export const fetchPokemon = async (name: string) => {
 ## [Hydration explained](Hydration.md)
 
 ## [Server and Client components diff](ServerClientComponents.md)
+
+## [Rendering strategies](RenderingCheatsheet.md)

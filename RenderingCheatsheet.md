@@ -102,7 +102,3 @@ Stranica se generira u pregledniku korisnika pomoću JavaScripta nakon inicijaln
 | CSR 🔍             | ⚠️ Umjereno | ✅ Visoka      | ❌ Nizak | ✅ Nisko               |
 
 ---
-
-Sada, kada ste upoznati sa svim vrstama renderiranja, lakše ćete odabrati pravi pristup za svoju Next.js aplikaciju! 🌟
-
-daj mi da to downloadam\
